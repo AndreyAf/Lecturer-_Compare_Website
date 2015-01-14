@@ -19,12 +19,12 @@
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
                 <asp:ScriptReference Name="MsAjaxBundle" />
                 <asp:ScriptReference Name="jquery" />
                 <asp:ScriptReference Name="bootstrap" />
                 <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="blocksit" />
                 <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
                 <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
                 <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
@@ -46,19 +46,20 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                    <a class="navbar-brand" runat="server" href="~/">המרצה</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/">ראשי</a></li>
+                        <li><a runat="server" href="~/About">קטגוריות</a></li>
+                        <li><a runat="server" href="#">עמוד מנהל</a></li>
+                        <li><a runat="server" href="#">עמוד משתמש</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                                <li><a runat="server" href="~/Account/Register">הירשם</a></li>
+                                <li><a runat="server" href="~/Account/Login">היכנס</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
@@ -78,7 +79,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> כל הזכויות שמורות ומוגנות בחוק הגנת הסטודנט</p>
             </footer>
         </div>
     </form>

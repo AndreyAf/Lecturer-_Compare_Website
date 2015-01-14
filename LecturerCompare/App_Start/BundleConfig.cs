@@ -9,7 +9,6 @@ namespace LecturerCompare
 {
     public class BundleConfig
     {
-        // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkID=303951
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/WebFormsJs").Include(
@@ -29,13 +28,11 @@ namespace LecturerCompare
                     "~/Scripts/WebForms/MsAjax/MicrosoftAjaxTimer.js",
                     "~/Scripts/WebForms/MsAjax/MicrosoftAjaxWebForms.js"));
 
-            // Use the Development version of Modernizr to develop with and learn from. Then, when you’re
-            // ready for production, use the build tool at http://modernizr.com to pick only the tests you need
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                            "~/Scripts/modernizr-*"));
+                            "~/Scripts/modernizr-*",
+                            "~/Scripts/jquery-*",
+                            "~/Scripts/blocksit.js"));
 
-            // Set EnableOptimizations to false for debugging. For more information,
-            // visit http://go.microsoft.com/fwlink/?LinkId=301862
             BundleTable.EnableOptimizations = true;
 
             ScriptManager.ScriptResourceMapping.AddDefinition(
@@ -44,6 +41,14 @@ namespace LecturerCompare
                 {
                     Path = "~/Scripts/respond.min.js",
                     DebugPath = "~/Scripts/respond.js",
+                });
+
+            ScriptManager.ScriptResourceMapping.AddDefinition(
+                "blocksit",
+                new ScriptResourceDefinition
+                {
+                    Path = "~/Scripts/blocksit.min.js",
+                    DebugPath = "~/Scripts/blocksit.js",
                 });
         }
     }
