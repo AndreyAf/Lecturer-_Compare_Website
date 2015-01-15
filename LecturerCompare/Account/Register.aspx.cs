@@ -15,7 +15,9 @@ namespace LecturerCompare.Account
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text };
+
             IdentityResult result = manager.Create(user, Password.Text);
+
             if (result.Succeeded)
             {
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

@@ -1,0 +1,135 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using LecturerCompare.Models;
+
+namespace LecturerCompare.Controllers
+{
+	[Authorize]
+    public class CategoriesController : Controller
+    {
+        private LecDBEntities db = new LecDBEntities();
+
+        // GET: Categories
+        public ActionResult Index()
+        {
+		ViewBag.Title = "change title";
+            return View(db.Categories.ToList());
+        }
+
+        // GET: Categories/Details/5
+        public ActionResult Details(int? id)
+        {
+			ViewBag.Title = "change title";
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Categories categories = db.Categories.Find(id);
+            if (categories == null)
+            {
+                return HttpNotFound();
+            }
+            return View(categories);
+        }
+
+        // GET: Categories/Create
+        public ActionResult Create()
+        {
+		ViewBag.Title = "change title";
+            return View();
+        }
+
+        // POST: Categories/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,Title")] Categories categories)
+        {
+		ViewBag.Title = "change title";
+            if (ModelState.IsValid)
+            {
+                db.Categories.Add(categories);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(categories);
+        }
+
+        // GET: Categories/Edit/5
+        public ActionResult Edit(int? id)
+        {
+		ViewBag.Title = "change title";
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Categories categories = db.Categories.Find(id);
+            if (categories == null)
+            {
+                return HttpNotFound();
+            }
+            return View(categories);
+        }
+
+        // POST: Categories/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,Title")] Categories categories)
+        {
+		ViewBag.Title = "change title";
+            if (ModelState.IsValid)
+            {
+                db.Entry(categories).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(categories);
+        }
+
+        // GET: Categories/Delete/5
+        public ActionResult Delete(int? id)
+        {
+		ViewBag.Title = "change title";
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Categories categories = db.Categories.Find(id);
+            if (categories == null)
+            {
+                return HttpNotFound();
+            }
+            return View(categories);
+        }
+
+        // POST: Categories/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Categories categories = db.Categories.Find(id);
+            db.Categories.Remove(categories);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
+}

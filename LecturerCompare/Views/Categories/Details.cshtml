@@ -1,0 +1,82 @@
+﻿@model LecturerCompare.Models.Categories
+
+<hr />
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;&nbsp;@Model.Title</h3>
+    </div>
+    <div class="panel-body details-bg">
+        <div class="row">
+            <div class="col-md-12">
+                <table id="Table" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>כותרת</th>
+                            <th>כותרת</th>
+                            <th>כותרת</th>
+                            <th>כותרת</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>תוכן</td>
+                            <td>תוכן</td>
+                            <td>תוכן</td>
+                            <td>תוכן</td>
+                        </tr>
+                        <tr>
+                            <td>תוכן</td>
+                            <td>תוכן</td>
+                            <td>תוכן</td>
+                            <td>תוכן</td>
+                        </tr>
+                        <tr>
+                            <td>תוכן</td>
+                            <td>תוכן</td>
+                            <td>תוכן</td>
+                            <td>תוכן</td>
+                        </tr>
+                        <tr>
+                            <td>תוכן</td>
+                            <td>תוכן</td>
+                            <td>תוכן</td>
+                            <td>תוכן</td>
+                        </tr>
+                    </tbody>
+                </table>
+</div>
+        </div>
+    </div>
+    <div class="panel-footer">
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#Table').DataTable({
+            "language": {
+                "emptyTable": "אין ערכים זמינים בטבלה",
+                "info": 'מציג _START_ עד _END_ מסה"כ _TOTAL_ רשומות',
+                "infoEmpty": "Showing 0 to 0 of 0 entries",
+                "infoFiltered": "(filtered from _MAX_ total entries)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "מציג _MENU_ תוצאות",
+                "loadingRecords": "טוען נתונים...",
+                "processing": "מעבד נתונים...",
+                "search": "חיפוש:",
+                "zeroRecords": "לא נמצאו תוצאות מתאימות",
+                "paginate": {
+                    "first": "ראשון",
+                    "last": "אחרון",
+                    "next": "הבא",
+                    "previous": "קודם"
+                },
+                "aria": {
+                    "sortAscending": ": activate to sort column ascending",
+                    "sortDescending": ": activate to sort column descending"
+                }
+            }
+        });
+    });
+</script>

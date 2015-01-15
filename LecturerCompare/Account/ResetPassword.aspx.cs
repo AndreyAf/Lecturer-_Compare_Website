@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.UI;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.TeamFoundation.WorkItemTracking.Client;
 using Owin;
 using LecturerCompare.Models;
 

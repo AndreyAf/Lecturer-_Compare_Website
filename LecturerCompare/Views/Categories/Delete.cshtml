@@ -1,0 +1,47 @@
+﻿@model LecturerCompare.Models.Categories
+
+    <hr />
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h3 class="panel-title"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;&nbsp;@ViewBag.Title</h3>
+        </div>
+        <div class="panel-body delete-bg">
+            <div class="row">
+                <div class="col-md-6 pull-right">
+         <div class="form-horizontal">
+    		<div class="form-group">
+                            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @style = "max-width:100%", @disabled = "disabled" } })
+                            </div>
+                        </div>
+    
+        </div>
+    </div>
+    </div>
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="submit" value="מחיקה" class="btn btn-danger" />
+                        @Html.ActionLink("חזור לרשימה", "Index")
+                    </div>
+                </div>
+            </div>
+        }
+    
+    </div>
+    @section Scripts {
+        <script>
+            $(function () {
+                $(document).on("submit", function (e) {
+                    var result = confirm("האם אתה בטוח שברצונך למחוק הערה זו?");
+                    if (!result) { return false; }
+                });
+            });
+        </script>
+    }
+
